@@ -1,0 +1,54 @@
+.player {
+    flex: 1;
+
+    &:not(:last-child) {
+        border-right: 2px solid $tertiary-color;
+    }
+
+    &__head {
+        text-transform: uppercase;
+        font-size: $text-small-size;
+        width: 100%;
+        height: 10%;
+        background-color: lighten($tertiary-color, 20%);
+        color: $primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border-bottom: 2px solid $tertiary-color;
+        
+
+        p {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p:first-child {
+            // padding-right: 40px;
+            border-right: 1px dashed $primary-color;
+        }
+    }
+
+    &__body {
+        width: 100%;
+        height: 90%;
+        padding: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(auto-fill, 25px);
+        gap: 5px;
+        overflow-y: scroll;
+    }
+
+}
+
+.show {
+    transform: translateY(-100%);
+}
+
+.active {
+    background-color: $primary-color;
+    color: $tertiary-color;
+}

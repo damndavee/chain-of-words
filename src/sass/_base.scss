@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $text-medium-size;
+}
+
+body {
+    height: 100vh;
+    color: $primary-color;
+    font-family: $main-font;
+    background-color: $tertiary-color;
+    overflow: hidden;
+}

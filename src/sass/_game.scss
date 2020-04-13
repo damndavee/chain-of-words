@@ -1,0 +1,85 @@
+.game {
+    width: 100%;
+    height: 100vh;
+    background-color: lighten($tertiary-color, 15%);
+    z-index: 10;
+    transition: transform .5s linear;
+
+    &__header {
+        width: 100%;
+        height: 35%;
+        border-bottom: 2px solid $tertiary-color;
+        display: flex;
+        background-color: lighten($tertiary-color, 20%);
+    }
+
+    &__message {
+        border-top: 1px solid $primary-color;
+        border-bottom: 1px solid $primary-color;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        padding: $p-small;
+        background-color: $primary-color;
+    }
+
+    &__player {
+        flex: 1;
+        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__word {
+        padding: $p-small*2 0;
+        flex: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;  
+        flex-direction: column;  
+        border-left: 1px solid $primary-color;    
+        border-right: 1px solid $primary-color;
+        font-size: $text-medium-size;
+    }
+
+    &__timer {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;  
+
+        .timer {
+            width: 70px;
+            height: 70px;
+            border: 1px solid $primary-color;
+        }
+    }
+
+    &__input {
+        margin-left: $m-small;
+        width: 60%;
+        height: 30px;
+        background-color: transparent;
+        border: none;
+        border: 2px solid $primary-color;
+        padding: $p-small * 2;
+        outline: none;
+        color: $primary-color;
+        font-size: $text-big-size;
+
+        &::placeholder {
+            color: $tertiary-color;
+            opacity: 0.5;
+            text-align: center;
+        }
+    }
+
+    &__container {
+        width: 100%;
+        height: 65%;
+        display: flex;
+    }
+
+}
