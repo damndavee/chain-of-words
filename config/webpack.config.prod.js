@@ -48,7 +48,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
             title: "Words Game :)",
-            template: './src/templates/index.html',
+            template: './src/html/index.html',
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css'
