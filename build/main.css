@@ -285,19 +285,6 @@ body {
 .show-streak-msg {
   transform: translateY(0); }
 
-.test {
-  width: 100vw;
-  height: 100vh;
-  background-color: #495159;
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  z-index: 40; }
-
 .player {
   flex: 1; }
   .player:not(:last-child) {
