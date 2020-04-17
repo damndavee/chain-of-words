@@ -1,0 +1,20 @@
+.word-streak-msg {
+    width: 100vw;
+    height: 15vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background-color: $secondary-color;
+    color: $tertiary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: all .3s linear;
+}
+
+
+.show-streak-msg {
+    transform: translateY(0);
+}

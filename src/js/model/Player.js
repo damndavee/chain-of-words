@@ -5,5 +5,6 @@ export class Player {
         this.points = 0;
         this.words = [];
         this.activeTurn = false;
+        this.streak = 0;
     }
 }

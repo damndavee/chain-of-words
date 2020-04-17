@@ -9,6 +9,7 @@ export class GameContainer {
         // this.startGame();
     }
     
+    
     setBasedWord() {
         let tmpNum = Math.floor(Math.random() * state.basedWords.length);
         state.actualWord = state.basedWords[tmpNum];
@@ -29,6 +30,10 @@ export class GameContainer {
         this.setTurn();
     }
 
+    updateDOMStreak() {
+        DOMelements.currentPlayerStreak.textContent = state.players[state.turn].streak;
+    }
+
     changeTurn() {
         state.randNum++;
         const nop = state.numberOfPlayers;
@@ -43,14 +48,13 @@ export class GameContainer {
         })
 
         tab[state.turn].firstChild.nextSibling.classList.add('active');
-        
+        this.updateDOMStreak();
     }
 
     setCurrentPlayer() {
         state.currentPlayer = state.players[state.turn].name;
         DOMelements.currentPlayer.innerText = `${state.currentPlayer}`;
     }
-
 
     updateState() {
         this.changeTurn();
@@ -67,7 +71,6 @@ export class GameContainer {
     playableState() {
         this.showGameContainer();
         this.updateState();
-        console.log(state);
     }
 
     unplayableState() {

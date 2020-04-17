@@ -73,13 +73,23 @@
             </div>
         </div>
 
-        
+        <div class="word-streak-msg" id="word-streak-msg">Player: sample has reached 5 words streak! CONGRATULATIONS!!</div>
 
         <div class="game" id='game'>
+
+            
+
             <div class="game__header" id='game__header'>
                 <div class="game__player" id="game__player">
-                    <p class="game__player--current" >Current player: </p>
-                    <p class="game__player--name" id="game__player--name"></p>
+                    <div>
+                        <p class="game__player-current" >Current player: </p>
+                        <p class="game__player-value" id="game__player-name"></p>
+                    </div>
+
+                    <div>
+                        <p class="game__player-streak">Current streak: </p>
+                        <p class="game__player-value" id="game__player-streak-count">0</p>
+                    </div>
                 </div>
                 
                 <div class="game__word" id="game__word">

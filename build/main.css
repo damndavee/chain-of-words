@@ -219,6 +219,15 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: center; }
+    .game__player-value {
+      margin-top: 10px;
+      width: 100%;
+      background-color: #A1E8CC;
+      color: #495159; }
+    .game__player > div {
+      text-align: center; }
+    .game__player > * {
+      margin: 10px 0; }
   .game__word {
     padding: 20px 0;
     flex: 50%;
@@ -257,6 +266,24 @@ body {
     width: 100%;
     height: 65%;
     display: flex; }
+
+.word-streak-msg {
+  width: 100vw;
+  height: 15vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  background-color: #C5DECD;
+  color: #495159;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: all .3s linear; }
+
+.show-streak-msg {
+  transform: translateY(0); }
 
 .player {
   flex: 1; }
