@@ -15,7 +15,10 @@ export const DOMelements = {
     message: document.getElementById('message'),
     terms: document.getElementById('terms'),
     showTerms: document.getElementById('show-terms'),
-    hideTerms: document.getElementById('hide-terms')
+    hideTerms: document.getElementById('hide-terms'),
+
+
+    test: document.getElementById('test')
 }
 
 export function clearContainer(parent) {

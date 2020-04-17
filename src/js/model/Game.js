@@ -98,6 +98,10 @@ export class Game {
         const word = (e.target.value).toLowerCase();
         const firstLetter = word.split('').splice(0, 1).join('');
         state.firstLetter = firstLetter;
+
+        if(firstLetter === 'a') {
+            DOMelements.test.style.display = 'flex';
+        }
     }
     
     pushWordToAllWordsArray(e) {
