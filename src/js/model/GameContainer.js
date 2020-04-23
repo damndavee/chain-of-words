@@ -1,6 +1,7 @@
 import {addPlayersForm} from '../view/addPlayerView';
 import {generateTemplate} from '../view/playerView';
-import {DOMelements, hideNavigation} from '../base';
+import showWinTemplate from '../view/winView';
+import {DOMelements} from '../base';
 import {state} from '../state';
 
 
@@ -93,6 +94,13 @@ export class GameContainer {
     unplayableState() {
         addPlayersForm();
         this.setState();
+    }
+
+    winCondition() {
+        if(state.players[state.turn].points >= state.pointsToWin) {
+            state.playable = false;
+            showWinTemplate(document.body, state.players[state.turn]);
+        }
     }
 
     startGame() {

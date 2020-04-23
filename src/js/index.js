@@ -4,14 +4,25 @@ import {state} from './state';
 import {GameContainer} from './model/GameContainer';
 import {Game} from './model/Game';
 import {setPlayer} from './model/AddPlayer';
+
+
+
  
 const gameContainer = new GameContainer();
 const game = new Game();
 
+
+
 DOMelements.showTerms.addEventListener('click', displayTerms);
 DOMelements.hideTerms.addEventListener('click', hideTerms);
 
-DOMelements.containerBtn.addEventListener('click',() => gameContainer.startGame())
+DOMelements.containerBtn.addEventListener('click',() => gameContainer.startGame());
+DOMelements.pointsToWin.addEventListener('keydown', e => {
+    if(e.keyCode === 13) {
+        gameContainer.startGame();
+    }
+})
+
 DOMelements.main.addEventListener('click', setPlayer);
 
 DOMelements.gameInput.addEventListener('keydown', e => {
@@ -22,8 +33,8 @@ DOMelements.gameInput.addEventListener('keydown', e => {
             game.compareLettersAndWords(e);  
             game.updatePlayerPointsToWin();
     
-            game.winCondition();
-    
+            
+            gameContainer.winCondition();
             gameContainer.updateState();
         }
     }

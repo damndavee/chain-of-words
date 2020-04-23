@@ -6,7 +6,7 @@ export function addPlayersForm() {
             <div class="form">
                 <div class="add-player">
                     <label class="add-player__label">Enter name of a player: </label>
-                    <input type="text" class="add-player__input" placeholder="enter name">
+                    <input type="text" class="add-player__input" autofocus placeholder="enter name"/>
                     <button class="add-player__btn">Add Player</button>
 
                     <div class="result">

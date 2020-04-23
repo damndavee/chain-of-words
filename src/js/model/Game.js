@@ -2,6 +2,7 @@ import {DOMelements, clearInput} from '../base';
 import {state} from '../state';
 
 
+
 export class Game {
     constructor() {}
 
@@ -164,11 +165,6 @@ export class Game {
         state.players[state.turn].pointsToWin = state.pointsToWin - state.players[state.turn].points;
     }
 
-    winCondition() {
-        if(state.players[state.turn].points >= state.pointsToWin) {
-            alert('Win!');
-            state.playable = false;
-        }
-    }
+    
 }
 
