@@ -23,15 +23,31 @@ export class GameContainer {
         state.randNum = state.turn;
     }
 
-    
-    setState() {
+    setNumberOfPlayers() {
         state.numberOfPlayers = DOMelements.playerSelectBox.value;
+    }
+
+    setPointsToWin() {
+        state.pointsToWin = +(DOMelements.pointsToWin.value);
+    }
+
+    setState() {
+        this.setNumberOfPlayers();
+        this.setPointsToWin();
         this.setBasedWord();
         this.setTurn();
     }
 
     updateDOMStreak() {
         DOMelements.currentPlayerStreak.textContent = state.players[state.turn].streak;
+    }
+
+    updateDOMPointsToWin() {
+        if(state.players[state.turn].pointsToWin < 0) {
+            DOMelements.playerPointsToWin.textContent = '0';
+        } else {
+            DOMelements.playerPointsToWin.textContent = +(state.pointsToWin) - state.players[state.turn].points;
+        }
     }
 
     changeTurn() {
@@ -49,6 +65,7 @@ export class GameContainer {
 
         tab[state.turn].firstChild.nextSibling.classList.add('active');
         this.updateDOMStreak();
+        this.updateDOMPointsToWin();
     }
 
     setCurrentPlayer() {

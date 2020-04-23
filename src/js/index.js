@@ -15,11 +15,16 @@ DOMelements.containerBtn.addEventListener('click',() => gameContainer.startGame(
 DOMelements.main.addEventListener('click', setPlayer);
 
 DOMelements.gameInput.addEventListener('keydown', e => {
-    if(e.keyCode === 13) {
-        game.getLastLetterFromActualWord();
-        game.getFirstLetterFromAddedWord(e);
-        game.compareLettersAndWords(e);    
-        
-        gameContainer.updateState();
+    if(state.playable) {
+        if(e.keyCode === 13) {
+            game.getLastLetterFromActualWord();
+            game.getFirstLetterFromAddedWord(e);
+            game.compareLettersAndWords(e);  
+            game.updatePlayerPointsToWin();
+    
+            game.winCondition();
+    
+            gameContainer.updateState();
+        }
     }
 })

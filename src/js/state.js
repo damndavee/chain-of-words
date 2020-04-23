@@ -14,7 +14,8 @@ export let state = {
                 'domek', 'król', 'pozdrawiam', 'dominikanin', 'jezioro', 
                 'dowcip', 'helikopter', 'kosmos' , 'trabant', 'pokoju', 
                 'Wiesław', 'strzelby', 'raz'],
-    currentPlayer: ''
+    currentPlayer: '',
+    pointsToWin: null
 }
 
 export function resetState() {

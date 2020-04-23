@@ -25,7 +25,7 @@ export class Game {
     }
 
     checkIfFiveStreak() {
-        if(state.players[state.turn].streak === 2) {
+        if(state.players[state.turn].streak === 5) {
             this.showStreakMessage();
             state.players[state.turn].points++;
             this.resetStreak();
@@ -98,10 +98,6 @@ export class Game {
         const word = (e.target.value).toLowerCase();
         const firstLetter = word.split('').splice(0, 1).join('');
         state.firstLetter = firstLetter;
-
-        if(firstLetter === 'a') {
-            DOMelements.test.style.display = 'flex';
-        }
     }
     
     pushWordToAllWordsArray(e) {
@@ -162,6 +158,17 @@ export class Game {
         this.displayMessage(e, fl, ll, indexOfWord);
 
         clearInput(e);
+    }
+
+    updatePlayerPointsToWin() {
+        state.players[state.turn].pointsToWin = state.pointsToWin - state.players[state.turn].points;
+    }
+
+    winCondition() {
+        if(state.players[state.turn].points >= state.pointsToWin) {
+            alert('Win!');
+            state.playable = false;
+        }
     }
 }
 

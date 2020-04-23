@@ -5,20 +5,19 @@ export const DOMelements = {
     containerBtn: document.getElementById('container__btn'),
     container: document.getElementById('container'),
     playerSelectBox: document.getElementById('numberOfPlayers'),
+    pointsToWin: document.getElementById('points__win'),
     gameTemplate: document.getElementById('game'),
     gameContainer: document.getElementById('game__container'),
     gameInput: document.getElementById('game__input'),
     currentWord: document.getElementById('game__word--current'),
     currentPlayer: document.getElementById('game__player-name'),
     currentPlayerStreak: document.getElementById('game__player-streak-count'),
+    playerPointsToWin: document.getElementById('game__player-points-to-win'),
     streakMessage: document.getElementById('word-streak-msg'),
     message: document.getElementById('message'),
     terms: document.getElementById('terms'),
     showTerms: document.getElementById('show-terms'),
     hideTerms: document.getElementById('hide-terms'),
-
-
-    test: document.getElementById('test')
 }
 
 export function clearContainer(parent) {

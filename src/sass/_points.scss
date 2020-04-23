@@ -1,0 +1,11 @@
+.points {
+    margin-top: $m-small * 2;
+
+    &__win {
+        width: 150px;
+        background-color: lighten($tertiary-color, 5%);
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        padding: $p-small - 5;
+    }
+}
