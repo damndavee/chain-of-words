@@ -80,6 +80,40 @@ export class GameContainer {
     }
 
 
+    //TIMER
+    updateDOMTimer(timer) {
+        DOMelements.timer.innerHTML = timer;
+    }
+
+    updateProgressBar(range) {
+        progress.style.transform = `translateX(-${range}px)`;
+    }
+ 
+    startTimer() {
+        let timer = state.timer;
+
+        const bar = DOMelements.bar;
+        const progress = DOMelements.progressBar;
+        let barWidth = bar.offsetWidth;
+
+        let scale = Math.floor(barWidth / timer);
+
+        console.log(typeof scale);
+        
+        let countdown = setInterval(() => {
+            timer--;
+
+            this.updateDOMTimer(timer)
+
+            if(timer === 0) {
+                clearInterval(countdown);
+            }
+        }, 1000); 
+    }
+
+    // TIMER
+
+
     showGameContainer() {
         DOMelements.gameTemplate.className = 'game show';
         state.players[state.turn].activeTurn = true;
@@ -89,6 +123,7 @@ export class GameContainer {
     playableState() {
         this.showGameContainer();
         this.updateState();
+        this.startTimer();
     }
 
     unplayableState() {

@@ -15,7 +15,8 @@ export let state = {
                 'dowcip', 'helikopter', 'kosmos' , 'trabant', 'pokoju', 
                 'Wiesław', 'strzelby', 'raz'],
     currentPlayer: '',
-    pointsToWin: null
+    pointsToWin: null,
+    timer: 10
 }
 
 export function resetState() {
