@@ -5,14 +5,15 @@ import {GameContainer} from './GameContainer';
 const gameContainer = new GameContainer();
 
 export function setPlayer(e) {
-    e.preventDefault();
+
     
     if(e.target.className === 'add-player__btn') {
+        e.preventDefault();
         const name = e.target.previousSibling.previousSibling;
-        const result = e.target.nextSibling.nextSibling;
-        const warning = e.target.nextSibling.nextSibling.nextSibling.nextSibling;
-        const mainContainer = e.target.parentNode.parentNode.parentNode;
-        
+        const result = e.target.parentNode.nextSibling.nextSibling;
+        const warning = e.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling;
+        const mainContainer = e.target.parentNode.parentNode.parentNode.parentNode;
+
         if(name.value !== '') {
             state.players.push(new Player(name.value, state.players.length));
 
@@ -36,5 +37,15 @@ export function setPlayer(e) {
 
         name.value = ''; 
         name.focus();
+    }
+
+    if(e.target.className === 'blur') {
+        e.target.parentNode.removeChild(e.target);
+    }
+
+    if(e.target.className === 'add-player__close-btn') {
+        const container = e.target.parentNode.parentNode.parentNode.parentNode
+        e.preventDefault();
+        container.parentNode.removeChild(container);
     }
 }
