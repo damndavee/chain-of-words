@@ -69,7 +69,6 @@
                     <select class="container__select-box" name="numberOfPlayers" id="numberOfPlayers">
                         <option class="container__select-box-value" value="2">2</option>
                         <option class="container__select-box-value" value="3">3</option>
-                        <option class="container__select-box-value" value="4">4</option>
                     </select>
                 </div>
                 <div class="points">
@@ -84,52 +83,51 @@
         <div class="word-streak-msg" id="word-streak-msg">Player: sample has reached 5 words streak! CONGRATULATIONS!!</div>
 
 
-        <!-- <div class="game" id="game">
-            <div class="game__side" id="game__side">
+        <div class="game" id="game">
+            <div class="game__side-left" id="game__side">
                 <div>
-                    <span class="game__player-current">Current player: </span>
-                    <p class="game__player-value" id="game__player-name"></p>
+                    <p class="game__player-current">Current Player: </p>
+                    <p class="game__player-name" id="game__player-name">Player 1</p>
                 </div>
-                
+    
                 <div>
-                    <span class="game__player-streak">Current streak: </span>
-                    <p class="game__player-value" id="game__player-streak-count"></p>
+                    <p class="game__player-streak">Current streak: </p>
+                    <p class="game__player-value" id="game__player-streak-count">0</p>
                 </div>
-        
+    
                 <div>
-                    <span class="game__player-current">Points to win: </span>
+                    <p class="game__player-current">Points to win: </p>
                     <p class="game__player-value" id="game__player-points-to-win">0</p>
                 </div>
-        
+    
                 <div>
-                    <div class="timer" id="timer>
+                    <div class="timer" id="timer">
                         <div class="timer__clock" id="timer__clock"></div>
                         <div class="timer__bar" id="timer__bar">
                             <div class="timer__progress" id="timer__progress"></div>
                         </div>
                     </div>
                 </div>
-        
+    
                 <div>
-                    <button class="game__reset"></button>
+                    <button class="game__reset">Start New Game</button>
                 </div>
             </div>
-        
-            <div class="game__header">
-                <div class="game__word" id="game__word">
-                            <p class="game__word--current" id="game__word--current">Current word: <span></span></p>
-                            <div class="game__message" id="message"></div>
-                            <input class="game__input" id="game__input" type="text" placeholder="enter the word">
-                        </div>
-        
-                <div class="game__container">
-        
+    
+            <div class="game__side-right">
+                <div class="game__header">
+                    <div class="game__word" id="game__word">
+                        <p class="game__word-current" id="game__word-current">Current Word: <span class="current-word" id="current-word">Ambiwalentny</span></p>
+                        <div class="game__message" id="game__message">------------</div>
+                        <input type="text" class="game__input" id="game__input" placeholder="Enter the word..."/>
+                    </div>
                 </div>
+    
+                <div class="game__container" id="game__container"></div>
             </div>
-        </div> -->
+        </div>
 
-
-        <div class="game" id='game'>
+        <!-- <div class="game" id='game'>
             <div class="game__header">
                 <div class="game__player">
                     <div>
@@ -165,7 +163,7 @@
             <div class="game__container" id='game__container'>
                 
             </div>
-        </div>
+        </div> -->
     </main>
 </body>
 </html>

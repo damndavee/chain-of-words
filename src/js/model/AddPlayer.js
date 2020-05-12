@@ -41,11 +41,13 @@ export function setPlayer(e) {
 
     if(e.target.className === 'blur') {
         e.target.parentNode.removeChild(e.target);
+        state.players = [];
     }
 
     if(e.target.className === 'add-player__close-btn') {
         const container = e.target.parentNode.parentNode.parentNode.parentNode
         e.preventDefault();
+        state.players = [];
         container.parentNode.removeChild(container);
     }
 }

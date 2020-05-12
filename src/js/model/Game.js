@@ -1,8 +1,6 @@
 import {DOMelements, clearInput} from '../base';
 import {state} from '../state';
 
-
-
 export class Game {
     constructor() {}
 
@@ -108,16 +106,13 @@ export class Game {
     
     updateActualWord(e) {
         state.actualWord = (e.target.value).toLowerCase();
-        DOMelements.currentWord.textContent = `Current word is: ${state.actualWord}`; 
+        DOMelements.currentWord.textContent = `${state.actualWord}`; 
     }
 
     compareEnteredWordWithArray(e) {
         this.addWord();
         this.updateActualWord(e);
         this.pushWordToAllWordsArray(e);
-
-        
-        // console.log(state.players[state.turn].name);
     }
 
     displayMessage(e, fl, ll, indexOfWord) {
@@ -165,6 +160,4 @@ export class Game {
         state.players[state.turn].pointsToWin = state.pointsToWin - state.players[state.turn].points;
     }
 
-    
 }
-

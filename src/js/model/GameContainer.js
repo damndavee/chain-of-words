@@ -14,7 +14,7 @@ export class GameContainer {
     setBasedWord() {
         let tmpNum = Math.floor(Math.random() * state.basedWords.length);
         state.actualWord = state.basedWords[tmpNum];
-        DOMelements.currentWord.textContent = `Current word: ${state.basedWords[tmpNum]}`; 
+        DOMelements.currentWord.textContent = `${state.basedWords[tmpNum]}`; 
         state.lastLetter = state.actualWord.split('').splice(state.actualWord.length - 1, 1);
     }
     
@@ -81,35 +81,35 @@ export class GameContainer {
 
 
     //TIMER
-    updateDOMTimer(timer) {
-        DOMelements.timer.innerHTML = timer;
-    }
+    // updateDOMTimer(timer) {
+    //     DOMelements.timer.innerHTML = timer;
+    // }
 
-    updateProgressBar(range) {
-        progress.style.transform = `translateX(-${range}px)`;
-    }
+    // updateProgressBar(range) {
+    //     progress.style.transform = `translateX(-${range}px)`;
+    // }
  
-    startTimer() {
-        let timer = state.timer;
+    // startTimer() {
+    //     let timer = state.timer;
 
-        const bar = DOMelements.bar;
-        const progress = DOMelements.progressBar;
-        let barWidth = bar.offsetWidth;
+    //     const bar = DOMelements.bar;
+    //     const progress = DOMelements.progressBar;
+    //     let barWidth = bar.offsetWidth;
 
-        let scale = Math.floor(barWidth / timer);
+    //     let scale = Math.floor(barWidth / timer);
 
-        console.log(typeof scale);
+    //     console.log(typeof scale);
         
-        let countdown = setInterval(() => {
-            timer--;
+    //     let countdown = setInterval(() => {
+    //         timer--;
 
-            this.updateDOMTimer(timer)
+    //         this.updateDOMTimer(timer)
 
-            if(timer === 0) {
-                clearInterval(countdown);
-            }
-        }, 1000); 
-    }
+    //         if(timer === 0) {
+    //             clearInterval(countdown);
+    //         }
+    //     }, 1000); 
+    // }
 
     // TIMER
 
@@ -123,7 +123,7 @@ export class GameContainer {
     playableState() {
         this.showGameContainer();
         this.updateState();
-        this.startTimer();
+        // this.startTimer();
     }
 
     unplayableState() {
