@@ -3,7 +3,7 @@ import {DOMelements, insertHTML} from '../base';
 export function addPlayersForm() {
     const template = `
         <div class="blur">
-            <div class="form">
+            <form class="form">
                 <div class="add-player">
                     <label class="add-player__label">Enter name of a player: </label>
                     <input type="text" class="add-player__input" autofocus placeholder="enter name"/>
@@ -19,7 +19,7 @@ export function addPlayersForm() {
                 </div>
 
                 
-            </div>
+            </form>
         </div>
     `;
 

@@ -1,4 +1,5 @@
 import '../sass/index.scss';
+import img from '../../public/images/letters.jpg';
 import {DOMelements, displayTerms, hideTerms} from './base';
 import {state} from './state';
 import {GameContainer} from './model/GameContainer';
@@ -6,12 +7,8 @@ import {Game} from './model/Game';
 import {setPlayer} from './model/AddPlayer';
 
 
-
- 
 const gameContainer = new GameContainer();
 const game = new Game();
-
-
 
 DOMelements.showTerms.addEventListener('click', displayTerms);
 DOMelements.hideTerms.addEventListener('click', hideTerms);

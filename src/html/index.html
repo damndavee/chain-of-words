@@ -13,7 +13,7 @@
             <button class="terms__btn" id='hide-terms'>X</button>
 
             <div class="terms__text">
-                <span>Witaj w grze "Chain of Words".</span>
+                <h2 class="terms__heading">Witaj w grze "Chain of Words".</h2>
                 <p> 
                     Głównym założeniem gry jest dopasowanie kolejnego słowa, do poprzedniego poprzez łączenie.
                     Na początku gry losowane jest jedno słowo. Zadaniem graczy będzie wprowadzenie następnego słowa, które rozpoczyna się
@@ -24,9 +24,9 @@
                 </p>
                 <p>Gracz otrzymuje 1, 2, lub trzy punkty, gdy wpisane przez niego słowo jest poprawne.</p>
                 <ul>
-                    <li>1pkt - gdy słowo posiada długoś od 2 do 4 znaków.</li>
-                    <li>2pkt - gdy słowo posiada od 5 do 7 znaków</li>
-                    <li>3pkt - gdy słowo ma więcej niż 7 znaków.</li>
+                    <li><span class="terms__span">1pkt</span> - gdy słowo posiada długoś od 2 do 4 znaków.</li>
+                    <li><span class="terms__span">2pkt</span> - gdy słowo posiada od 5 do 7 znaków</li>
+                    <li><span class="terms__span">3pkt</span> - gdy słowo ma więcej niż 7 znaków.</li>
                 </ul>
 
                 <p>
@@ -37,10 +37,10 @@
                 <p>
                     Jeśli gracz nie zmieści się w czasie, to z jego puli punktów zostanie odjęty 1pkt. 
                     Jeśli dany gracz zanotuje serię 5 słów z rzędu z przynajmniej 2pkt, to otrzyma on dodatkowy punkt. 
-                    Licznik wtedy się zeruje.
+                    Licznik "serii" wtedy się zeruje.
                 </p>
 
-                <span>Udanej zabawy!!</span>
+                <span class="terms__span good-luck">Udanej zabawy!!</span>
             </div>
 
 
@@ -48,41 +48,90 @@
         </div>
     </div>
 
+    <nav class="navigation" id="navigation">
+        <ul class="navigation__menu p-horizontal-b">
+            <li class="navigation__list">Chain of words</li>
+
+            <div class="wrapper">
+                <li class="navigation__list m-horizontal-s" id="show-terms">Terms</li>
+                <li class="navigation__list m-horizontal-s">TBA</li>
+            </div>
+        </ul>
+    </nav>
+
     <main id='main'> 
-        <nav class="navigation" id="navigation">
-            <ul class="navigation__menu p-horizontal-b">
-                <li class="navigation__list">Chain of words</li>
-    
-                <div class="wrapper">
-                    <li class="navigation__list m-horizontal-s" id="show-terms">Terms</li>
-                    <li class="navigation__list m-horizontal-s">TBA</li>
-                </div>
-            </ul>
-        </nav>
     
         <div class="container" id='container'>
-            <h1 id='heading'>Do You want to chain some words?</h1>
-            <div class="wrapper">
-                <span class="container__span">Choose number of players: </span>
-                <select class="container__select-box" name="numberOfPlayers" id="numberOfPlayers">
-                    <option class="container__select-box-value" value="2">2</option>
-                    <option class="container__select-box-value" value="3">3</option>
-                    <option class="container__select-box-value" value="4">4</option>
-                </select>
-            </div>
-            <div class="points">
-                <span class="points__span">Points to win (min: 50): </span>
-                <input type="number" class="points__win" id="points__win" min="10" step="10" value="10">
-            </div>
+            <div class="container__wrapper">
+                <h1 class='container__heading'>Do You want to <span>chain</span> some <span>words</span>?</h1>
+                <div class="wrapper">
+                    <span class="container__span">Choose number of players: </span>
+                    <select class="container__select-box" name="numberOfPlayers" id="numberOfPlayers">
+                        <option class="container__select-box-value" value="2">2</option>
+                        <option class="container__select-box-value" value="3">3</option>
+                        <option class="container__select-box-value" value="4">4</option>
+                    </select>
+                </div>
+                <div class="points">
+                    <span class="points__span">Points to win (min: 10): </span>
+                    <input type="number" class="points__win" id="points__win" min="10" step="10" value="10">
+                </div>
 
-            <button class="container__btn m-vertical-m" id='container__btn'>Click to start game</button>
+                <button class="container__btn m-vertical-m" id='container__btn'>Click to start game</button>
+            </div>
         </div>
 
         <div class="word-streak-msg" id="word-streak-msg">Player: sample has reached 5 words streak! CONGRATULATIONS!!</div>
 
+
+        <!-- <div class="game" id="game">
+            <div class="game__side" id="game__side">
+                <div>
+                    <span class="game__player-current">Current player: </span>
+                    <p class="game__player-value" id="game__player-name"></p>
+                </div>
+                
+                <div>
+                    <span class="game__player-streak">Current streak: </span>
+                    <p class="game__player-value" id="game__player-streak-count"></p>
+                </div>
+        
+                <div>
+                    <span class="game__player-current">Points to win: </span>
+                    <p class="game__player-value" id="game__player-points-to-win">0</p>
+                </div>
+        
+                <div>
+                    <div class="timer" id="timer>
+                        <div class="timer__clock" id="timer__clock"></div>
+                        <div class="timer__bar" id="timer__bar">
+                            <div class="timer__progress" id="timer__progress"></div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div>
+                    <button class="game__reset"></button>
+                </div>
+            </div>
+        
+            <div class="game__header">
+                <div class="game__word" id="game__word">
+                            <p class="game__word--current" id="game__word--current">Current word: <span></span></p>
+                            <div class="game__message" id="message"></div>
+                            <input class="game__input" id="game__input" type="text" placeholder="enter the word">
+                        </div>
+        
+                <div class="game__container">
+        
+                </div>
+            </div>
+        </div> -->
+
+
         <div class="game" id='game'>
-            <div class="game__header" id='game__header'>
-                <div class="game__player" id="game__player">
+            <div class="game__header">
+                <div class="game__player">
                     <div>
                         <p class="game__player-current" >Current player: </p>
                         <p class="game__player-value" id="game__player-name"></p>

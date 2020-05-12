@@ -5,6 +5,7 @@ import {GameContainer} from './GameContainer';
 const gameContainer = new GameContainer();
 
 export function setPlayer(e) {
+    e.preventDefault();
     
     if(e.target.className === 'add-player__btn') {
         const name = e.target.previousSibling.previousSibling;

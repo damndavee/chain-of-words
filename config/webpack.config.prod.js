@@ -41,6 +41,14 @@ module.exports = {
                         "@babel/plugin-proposal-class-properties"
                     ]
                 }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
             }
         ]
     },

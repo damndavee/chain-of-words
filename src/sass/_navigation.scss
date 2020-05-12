@@ -1,8 +1,8 @@
 .navigation {
     width: 100vw;
     height: 10vh;
-    background-color: $secondary-color;
-    color: $tertiary-color;
+    
+    color: $secondary-color;
 
     &__menu {
         width: 100%;
@@ -19,9 +19,14 @@
         cursor: pointer;
     }
 
-    .wrapper &__list:hover {
-        color: $primary-color;
-        background-color: $tertiary-color;
-    }
+    .wrapper &__list {
+        &:first-child {
+            border-bottom: 2px solid $tertiary-color;
+        }
 
+        &:hover {
+            color: $primary-color;
+            
+        }
+    }
 }

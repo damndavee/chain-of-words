@@ -3,9 +3,10 @@
 
     &__win {
         width: 150px;
-        background-color: lighten($tertiary-color, 5%);
-        border: 2px solid $primary-color;
-        color: $primary-color;
+        background-color: transparent;
+        border: 2px solid $tertiary-color;
+        border-radius: 4px;
+        color: $secondary-color;
         padding: $p-small - 5;
     }
 }
