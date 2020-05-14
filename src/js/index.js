@@ -12,11 +12,16 @@ const game = new Game();
 DOMelements.showTerms.addEventListener('click', displayTerms);
 DOMelements.hideTerms.addEventListener('click', hideTerms);
 
-DOMelements.containerBtn.addEventListener('click',() => gameContainer.startGame());
+DOMelements.containerBtn.addEventListener('click', (e) => {
+    gameContainer.startGame(e);
+    document.activeElement.blur(); //removes focus which casued a lot of problems
+});
+
 DOMelements.pointsToWin.addEventListener('keydown', e => {
     if(e.keyCode === 13) {
-        gameContainer.startGame();
+        gameContainer.startGame(e);
     }
+    document.activeElement.blur(); //removes focus which casued a lot of problems
 })
 
 DOMelements.main.addEventListener('click', setPlayer);

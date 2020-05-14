@@ -12,7 +12,7 @@ export function setPlayer(e) {
         const name = e.target.previousSibling.previousSibling;
         const result = e.target.parentNode.nextSibling.nextSibling;
         const warning = e.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling;
-        const mainContainer = e.target.parentNode.parentNode.parentNode.parentNode;
+        const mainContainer = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
 
         if(name.value !== '') {
             state.players.push(new Player(name.value, state.players.length));
@@ -45,9 +45,10 @@ export function setPlayer(e) {
     }
 
     if(e.target.className === 'add-player__close-btn') {
-        const container = e.target.parentNode.parentNode.parentNode.parentNode
         e.preventDefault();
+        const container = e.target.parentNode.parentNode.parentNode;
         state.players = [];
         container.parentNode.removeChild(container);
+        // console.log(container.parentNode);
     }
 }

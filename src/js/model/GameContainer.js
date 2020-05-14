@@ -126,8 +126,8 @@ export class GameContainer {
         // this.startTimer();
     }
 
-    unplayableState() {
-        addPlayersForm();
+    unplayableState(e) {
+        addPlayersForm(e);
         this.setState();
     }
 
@@ -138,11 +138,11 @@ export class GameContainer {
         }
     }
 
-    startGame() {
+    startGame(e) {
         if(state.playable) {
             this.playableState();
         } else {
-            this.unplayableState();
+            this.unplayableState(e);
         }
     }
 }

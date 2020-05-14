@@ -2,7 +2,7 @@
     flex: 1;
 
     &:not(:last-child) {
-        border-right: 2px solid $tertiary-color;
+        border-right: 2px solid $secondary-color;
     }
 
     &__head {
@@ -10,12 +10,12 @@
         font-size: $text-small-size;
         width: 100%;
         height: 10%;
-        background-color: lighten($tertiary-color, 20%);
-        color: $primary-color;
+        background-color: $primary-color;
+        color: $secondary-color;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        border-bottom: 2px solid $tertiary-color;
+        border-bottom: 2px solid $secondary-color;
         
 
         p {
@@ -49,6 +49,5 @@
 }
 
 .active {
-    background-color: $primary-color;
-    color: $tertiary-color;
+    background-color: $tertiary-color;
 }
