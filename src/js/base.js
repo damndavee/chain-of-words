@@ -18,9 +18,12 @@ export const DOMelements = {
     timer: document.getElementById('timer'),
     bar: document.getElementById('bar'),
     progressBar: document.getElementById('progress'),
-    terms: document.getElementById('terms'),
     showTerms: document.getElementById('show-terms'),
     hideTerms: document.getElementById('hide-terms'),
+    terms: document.getElementById('terms'),
+    showFeatures: document.getElementById('show-features'),
+    hideFeatures: document.getElementById('hide-features'),
+    features: document.getElementById('features')
 }
 
 export function clearContainer(parent) {
@@ -47,10 +50,6 @@ export function clearInput(e) {
   e.target.value = '';
 }
 
-export function displayTerms() {
-  DOMelements.terms.style.display = 'flex';
-}
-
-export function hideTerms() {
-  DOMelements.terms.style.display = 'none';
+export function toggleElement(element, display) {
+  element.style.display = display;
 }

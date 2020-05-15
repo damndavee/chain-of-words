@@ -1,0 +1,23 @@
+.btn {
+    border: 2px solid $tertiary-color;
+        border-radius: 4px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: $secondary-color;
+        font-weight: bold;
+        outline: none;
+        cursor: pointer;
+        transition: .2s linear;
+
+        &:hover {
+            background-color: $primary-color;
+            color: $tertiary-color;
+        }
+}
