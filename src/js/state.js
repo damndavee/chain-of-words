@@ -16,7 +16,8 @@ export let state = {
                 'Wiesław', 'strzelby', 'raz'],
     currentPlayer: '',
     pointsToWin: null,
-    timer: 10
+    timer: 10,
+    timerInterval: null
 }
 
 export function resetState() {

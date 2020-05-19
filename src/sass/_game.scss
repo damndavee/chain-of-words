@@ -29,11 +29,12 @@
                 font-size: 25px;
                 padding: 5px 0;
                 border-radius: 4px;
-
+                
                 &:nth-last-of-type(1) {
                     background-color: $secondary-color;
                     font-size: 25px;
                     border: 2px solid #02adbf;
+                    box-shadow: 0 0 5px rgba(0,0,0,.6);
                 }
             }
         }
@@ -46,6 +47,7 @@
         border: none;
         color: $tertiary-color;
         font-weight: bold;
+        font-size: $text-small-size;
         border: 2px solid $tertiary-color;
         transition: all .2s linear;
 

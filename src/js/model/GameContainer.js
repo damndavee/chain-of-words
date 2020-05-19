@@ -77,39 +77,59 @@ export class GameContainer {
     updateState() {
         this.changeTurn();
         this.setCurrentPlayer();
+        this.updateTimer();
     }
 
 
     //TIMER
-    // updateDOMTimer(timer) {
-    //     DOMelements.timer.innerHTML = timer;
-    // }
+    updateDOMTimer(timer) {
+        DOMelements.timer.innerHTML = timer;
+    }
 
-    // updateProgressBar(range) {
-    //     progress.style.transform = `translateX(-${range}px)`;
-    // }
- 
-    // startTimer() {
-    //     let timer = state.timer;
+    updateTimer() {
+        this.stopTimer();
+        state.timer = 10;
+        this.updateDOMTimer(state.timer);
+        this.startTimer();
+    }
 
-    //     const bar = DOMelements.bar;
-    //     const progress = DOMelements.progressBar;
-    //     let barWidth = bar.offsetWidth;
+    stopTimer() {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+        console.log(`state: ${state.timerInterval}`);
+    }
 
-    //     let scale = Math.floor(barWidth / timer);
+    updateProgressBar() {
+        const progressBar = DOMelements.progressBar;
+        const progressBarWidth = progressBar.offsetWidth;
 
-    //     console.log(typeof scale);
+        const progressContainer = DOMelements.bar;
+        const progressContainerWidth = progressContainer.offsetWidth;
         
-    //     let countdown = setInterval(() => {
-    //         timer--;
+        let timer = state.timer;
+        
+        // console.log(progressBarWidth);
+        // console.log(timer);
 
-    //         this.updateDOMTimer(timer)
+        progressBar.style.width = `${(timer / progressContainerWidth) * 1000}%`;
+    }
+  
+    startTimer() {
+        console.log(`state: ${state.timerInterval}`);
+        state.timerInterval = setInterval(() => {
+            state.timer--;
+            
+            this.updateDOMTimer(state.timer);
+            console.log(`state: ${state.timerInterval}`);
 
-    //         if(timer === 0) {
-    //             clearInterval(countdown);
-    //         }
-    //     }, 1000); 
-    // }
+            this.updateProgressBar();
+
+            if(state.timer === 0) {
+                this.stopTimer();
+            }
+            
+        }, 1000); 
+    }
 
     // TIMER
 
@@ -123,7 +143,7 @@ export class GameContainer {
     playableState() {
         this.showGameContainer();
         this.updateState();
-        // this.startTimer();
+        this.startTimer();
     }
 
     unplayableState(e) {
