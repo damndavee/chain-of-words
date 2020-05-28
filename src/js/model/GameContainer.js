@@ -1,8 +1,12 @@
 import {addPlayersForm} from '../view/addPlayerView';
 import {generateTemplate} from '../view/playerView';
 import showWinTemplate from '../view/winView';
-import {DOMelements} from '../base';
+import {DOMelements, updatePoints} from '../base';
 import {state} from '../state';
+
+import {Game} from './Game';
+
+const game = new Game();
 
 
 export class GameContainer {
@@ -67,6 +71,7 @@ export class GameContainer {
         tab[state.turn].firstChild.nextSibling.classList.add('active');
         this.updateDOMStreak();
         this.updateDOMPointsToWin();
+
     }
 
     setCurrentPlayer() {
@@ -86,17 +91,16 @@ export class GameContainer {
         DOMelements.timer.innerHTML = timer;
     }
 
-    updateTimer() {
+    updateTimer(e) {
         this.stopTimer();
         state.timer = 10;
         this.updateDOMTimer(state.timer);
-        this.startTimer();
+        this.startTimer(e);
     }
 
     stopTimer() {
         clearInterval(state.timerInterval);
         state.timerInterval = null;
-        console.log(`state: ${state.timerInterval}`);
     }
 
     updateProgressBar() {
@@ -107,25 +111,35 @@ export class GameContainer {
         const progressContainerWidth = progressContainer.offsetWidth;
         
         let timer = state.timer;
-        
-        // console.log(progressBarWidth);
-        // console.log(timer);
-
         progressBar.style.width = `${(timer / progressContainerWidth) * 1000}%`;
     }
   
-    startTimer() {
-        console.log(`state: ${state.timerInterval}`);
+    startTimer(e) {
+
+        const tab = [...DOMelements.gameContainer.children];
+
+        
+        
         state.timerInterval = setInterval(() => {
             state.timer--;
             
             this.updateDOMTimer(state.timer);
-            console.log(`state: ${state.timerInterval}`);
+            
 
             this.updateProgressBar();
 
             if(state.timer === 0) {
-                this.stopTimer();
+                game.displayMessage(e, 'timeIsUp');
+
+                tab.forEach(playerHead => {
+                    if(playerHead.firstChild.nextSibling.className.includes('active')) {
+                        state.players[state.turn].points--;
+                        updatePoints(playerHead, state.players[state.turn].points);
+                    }
+                })
+
+                this.changeTurn();
+                this.updateTimer(e);
             }
             
         }, 1000); 
@@ -143,7 +157,6 @@ export class GameContainer {
     playableState() {
         this.showGameContainer();
         this.updateState();
-        this.startTimer();
     }
 
     unplayableState(e) {

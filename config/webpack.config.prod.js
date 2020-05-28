@@ -10,7 +10,7 @@ module.exports = {
     },
     output: {
         filename: 'js/[name]-[contenthash:6].js',
-        path: path.resolve(__dirname, '../', 'build')
+        path: path.resolve(__dirname, '../', 'build'),
     },
     devServer: {
         open: true,

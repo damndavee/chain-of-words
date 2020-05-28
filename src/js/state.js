@@ -17,7 +17,8 @@ export let state = {
     currentPlayer: '',
     pointsToWin: null,
     timer: 10,
-    timerInterval: null
+    timerInterval: null,
+    isTimeUp: false
 }
 
 export function resetState() {

@@ -1,8 +1,11 @@
-import {DOMelements, clearInput} from '../base';
+import {DOMelements, clearInput, updatePoints} from '../base';
 import {state} from '../state';
 
 export class Game {
-    constructor() {}
+    constructor() {
+
+        state.isTimeUp ? this.displayMessage(e, 'timeIsUp') : null;
+    }
 
 
     addStreak() {
@@ -82,7 +85,7 @@ export class Game {
         tab.forEach(playerHead => {
             if(playerHead.firstChild.nextSibling.className.includes('active')) {
                 playerHead.lastChild.previousSibling.innerHTML += template;
-                this.updatePoints(playerHead, state.players[state.turn].points);
+                updatePoints(playerHead, state.players[state.turn].points);
             }
         })
     }
@@ -115,23 +118,35 @@ export class Game {
         this.pushWordToAllWordsArray(e);
     }
 
-    displayMessage(e, fl, ll, indexOfWord) {
+    displayMessage(e, msg) {
 
-        let msg;
+        let message;
         let err;
 
-        if(fl !== ll) {
-            msg = `To słowo nie zaczyna się na literę: ${ll}`;
-            err = 'error';
-        } else if(indexOfWord !== -1) {
-            msg = `Słowo: ${e.target.value} już się pojawiło!`;
-            err = 'error';
-        } else {
-            msg = `Słowo: ${e.target.value} zostało poprawnie dodane!`
-            err = 'correct';
-        } 
+        switch(msg) {
+            case 'repeatedWord': {
+                message = `Słowo: ${e.target.value} już się pojawiło!`;
+                err = 'error';
+                break;
+            }
+            case 'lettersDontMatch': {
+                message = `To słowo zaczyna się na niewłaściwą literę!`;
+                err = 'error';
+                break;
+            }
+            case 'timeIsUp': {
+                message = `Czas upłynął. Gracz ${state.players[state.turn].name} traci 1 pkt`;
+                err = 'error';
+                break;
+            };
+            case 'correctWord': {
+                message = `Słowo: ${e.target.value} zostało poprawnie dodane!`;
+                err = 'correct';
+                break;
+            }
+        }
 
-        DOMelements.message.textContent = msg;
+        DOMelements.message.textContent = message;
         DOMelements.message.classList.add(err);
 
         setTimeout(() => {
@@ -142,16 +157,20 @@ export class Game {
     
     compareLettersAndWords(e) {
         let indexOfWord = state.takenWords.indexOf(e.target.value);
-        let fl = state.firstLetter;
-        let ll = state.lastLetter;
+        let firstLetter = state.firstLetter;
+        let lastLetter = state.lastLetter;
     
-        if((fl === ll) && (indexOfWord === -1)) {
-            this.compareEnteredWordWithArray(e);            
+        if((firstLetter === lastLetter) && (indexOfWord === -1)) {
+            this.compareEnteredWordWithArray(e);
+            this.displayMessage(e, 'correctWord');
+            state.isTimeUp ? state.isTimeUp = false : null;      
         } else {
             this.resetStreak();
         }
 
-        this.displayMessage(e, fl, ll, indexOfWord);
+        if(indexOfWord !== -1) this.displayMessage(e, 'repeatedWord');
+        if(firstLetter != lastLetter) this.displayMessage(e, 'lettersDontMatch');
+        if(this.timeUp) this.displayMessage(e, 'timeIsUp');
 
         clearInput(e);
     }

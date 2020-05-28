@@ -53,3 +53,7 @@ export function clearInput(e) {
 export function toggleElement(element, display) {
   element.style.display = display;
 }
+
+export function updatePoints(node, player) {
+  node.firstChild.nextSibling.lastChild.previousSibling.textContent = `points: ${player}`;
+}
